@@ -1,0 +1,25 @@
+name: Python Push Tester
+
+on:
+  push:
+    branches:
+    - main # main 브랜치에push할때실행
+  pull_request:
+    branches:
+    - main # main 브랜치로PR 시실행
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Run Validation Tests
+        run: python app_test.py
