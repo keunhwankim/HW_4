@@ -7,6 +7,9 @@ on:
     types:
       - opened # 이슈가 생성될 때만 반응
 
+permissions:
+  issues: write
+
 jobs:
   comment:
     runs-on: ubuntu-latest
